@@ -13,7 +13,9 @@ function drow() {
  
     y += 50;
     blackTush()
-    writeAsSymbol();
+    for (let x =0; x <canvas.width; x += 50){
+        writeAsSymbol(x);
+    }
 }
 
 function blackTush() {
@@ -22,10 +24,10 @@ function blackTush() {
 
 }
 
-function writeAsSymbol() {
+function writeAsSymbol(x) {
     ctx.fillStyle = "#0F0";
     ctx.front = "50px serif";
-    ctx.fillText(randomMatrixSymbol(), 30, y);
+    ctx.fillText(randomMatrixSymbol(), x, y);
 }
 setInterval(drow, 100);
 
