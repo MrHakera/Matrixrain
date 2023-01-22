@@ -3,16 +3,30 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 document.body.appendChild(canvas);
 
+let y=50
 
-var ctx = canvas.getContext("2d");
-var y = 0;
+let ctx = canvas.getContext("2d");
 function drow() {
-    ctx.fillStyle = "#0F0"
-    ctx.front = "50px serif";
-    y += 50
-    ctx.fillText(randomMatrixSymbol(), 30, y)
+ if (y>canvas.height){
+    y=0;
+ }
+ 
+    y += 50;
+    blackTush()
+    writeAsSymbol();
 }
 
+function blackTush() {
+    ctx.fillStyle = "rgba(0,0,0,0.1)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+}
+
+function writeAsSymbol() {
+    ctx.fillStyle = "#0F0";
+    ctx.front = "50px serif";
+    ctx.fillText(randomMatrixSymbol(), 30, y);
+}
 setInterval(drow, 100);
 
 function randomMatrixSymbol() {
